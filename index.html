@@ -1,37 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday Neha ❤️</title>
+  <title>Happy Birthday Neha 💖</title>
   <meta charset="UTF-8">
+
   <style>
     body {
-      background: linear-gradient(135deg,#ff758c,#ff7eb3);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding: 30px;
+      overflow: hidden;
     }
+
+    .card {
+      max-width: 600px;
+      padding: 30px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
     p {
       font-size: 18px;
-      margin: 20px 0;
+      margin: 14px 0;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #ff4f7b;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
+
 <body>
 
-<h1>Happy birthday wiffy 🥺🎂</h1>
+  <div class="card">
+    <h1>Happy birthday wiffy 🥺🎂</h1>
 
-<p>Thankyou for being my support system 🧿❤️</p>
-<p>Apke ane k baad pata chala ki pyaar kya hota hai 🥺🧿❤️‍🩹</p>
-<p>Hamesha mera saath dene k liye thankyou wiffy 🥺😘</p>
-<p>Sorry mai apka birthday accha nahi bana pata kabhi 😔</p>
-<p>Aur app hurt hoke bhi is baat ko hamesha nazarandaz kr dete ho 😔</p>
-<p>I promise wiffy mai apka birthday ek din bilkul vaise celebrate karunga jaise mujhe karna hai 😔</p>
-<p>Hamesha mere saath rehena jaan 🥺😘</p>
+    <p>Thankyou for being my support system 🧿❤️</p>
+    <p>Apke ane k baad pata chala ki pyaar kya hota hai 🥺🧿❤️‍🩹</p>
+    <p>Hamesha mera saath dene k liye thankyou wiffy 🥺😘</p>
+    <p>Sorry mai apka birthday accha nahi bana pata kabhi 😔</p>
+    <p>Aur app hurt hoke bhi is baat ko hamesha nazarandaz kr dete ho 😔</p>
+    <p>I promise wiffy mai apka birthday ek din bilkul vaise celebrate karunga jaise mujhe karna hai 😔</p>
+    <p><b>Hamesha mere saath rehena jaan 🥺😘</b></p>
 
-<audio autoplay loop>
-  <source src="ishq-hai.mp3" type="audio/mpeg">
-</audio>
+    <button onclick="playMusic()">▶ Play our song 🎶</button>
+  </div>
+
+  <audio id="bgm" loop>
+    <source src="ishq-hai.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById("bgm").play();
+    }
+
+    // floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
 
 </body>
 </html>
